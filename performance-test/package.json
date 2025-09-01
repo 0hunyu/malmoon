@@ -1,0 +1,13 @@
+{
+  "name": "performance-test",
+  "version": "1.0.0",
+  "description": "k6 성능 테스트 스크립트 모음",
+  "main": "index.js",
+  "scripts": {
+    "load:aac": "k6 run aac/aac-list-get-test.js",
+    "load:auth": "k6 run auth/login-test.js"
+  },
+  "keywords": ["k6", "load-test"],
+  "author": "",
+  "license": "ISC"
+}

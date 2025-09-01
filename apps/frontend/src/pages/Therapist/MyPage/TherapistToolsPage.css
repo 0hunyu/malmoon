@@ -1,0 +1,149 @@
+/* TherapistToolsPage.css */
+
+/* --- HomePage.css의 디자인 시스템 변수 가져오기 --- */
+:root {
+  --light-bg-color-3: #f4f8fb; /* 전체 페이지 배경 */
+  --light-bg-color-4: #fffaf0; /* 섹션 배경 (파스텔 크림톤) */
+  --primary-color: #4a90e2;    /* 포인트 색상 (버튼, 활성 탭) */
+  --primary-gradient: linear-gradient(135deg, #4a90e2 0%, #54d2d4 100%);
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --border-radius-lg: 16px;
+  --border-radius-md: 12px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 48px;
+  --accent-pastel: var(--light-bg-color-4);
+  --accent-pastel-border: #eedfcb;
+}
+
+/* --- 전체 페이지 레이아웃 --- */
+.tools-management-section {
+  background-color: transparent;
+  padding: var(--spacing-md) var(--spacing-sm);
+  min-height: 100vh;
+}
+
+.tools-management-section h2 {
+  font-family: 'Jua', 'Gamja Flower', 'Gowun Dodum', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+/* --- 탭 스타일 --- */
+.nav-tabs {
+  border-bottom: 2px solid #dee2e6;
+  margin-bottom: var(--spacing-sm);
+}
+.nav-tabs .nav-link {
+  font-family: 'Gowun Dodum', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #6c757d;
+  border: none;
+  border-bottom: 3px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  padding: 0.75rem 1.25rem;
+}
+.nav-tabs .nav-link.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+  background-color: transparent;
+}
+.nav-tabs .nav-link:hover {
+  color: var(--primary-color);
+  border-bottom-color: rgba(74, 144, 226, 0.3);
+}
+
+/* --- 탭 내부 컨텐츠 카드 --- */
+.tab-content .card {
+  border: none;
+  background-color: transparent !important;
+  box-shadow: none;
+}
+.tab-content .card-body {
+  padding: 0;
+}
+
+/* --- 각 관리 섹션 --- */
+.tools-section {
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: transparent !important;
+  /* border-top: 2px solid var(--accent-pastel-border);
+  border-bottom: 2px solid var(--accent-pastel-border);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05); */
+}
+
+.tools-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--accent-pastel-border);
+}
+
+.page-section-title {
+  font-family: 'Jua', 'Gamja Flower', 'Gowun Dodum', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #34495e;
+  margin: 0;
+}
+
+/* --- 공통 버튼 스타일 --- */
+.btn-tool-add {
+  background-image: var(--primary-gradient) !important;
+  border: none !important;
+  color: white !important;
+  font-family: 'Gowun Dodum', sans-serif;
+  font-weight: 600;
+  padding: 0.7rem 1.4rem;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
+  transition: all 0.2s ease;
+}
+.btn-tool-add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+}
+
+/* 목록 내 편집/삭제 버튼 기본 스타일 */
+.btn-tool-edit, .btn-tool-delete {
+  font-family: 'Gowun Dodum', sans-serif;
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-tool-edit {
+  background-color: #fff;
+  border-color: #ccc;
+  color: #555;
+}
+.btn-tool-edit:hover {
+  background-color: #34495e;
+  border-color: #34495e;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.btn-tool-delete {
+  background-color: #fff;
+  border-color: #e74c3c;
+  color: #e74c3c;
+}
+.btn-tool-delete:hover {
+  background-color: #e74c3c;
+  color: #fff;
+  transform: scale(1.05);
+}

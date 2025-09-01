@@ -1,0 +1,13 @@
+package com.communet.malmoon;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MalmoonApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(MalmoonApplication.class, args);
+    }
+
+}

@@ -1,0 +1,47 @@
+/* FilterTool.css */
+
+/* 필터 썸네일 카드 기본 스타일 */
+.filter-thumb-card {
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out, box-shadow 0.2s ease;
+  border: 2px solid transparent;
+}
+
+/* 사용자가 카드를 클릭하고 있는 동안 (누르고 있는 순간) */
+.filter-thumb-card:active {
+  transform: scale(0.95); /* 살짝 작아지는 효과로 클릭 피드백 제공 */
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+/* 선택되었지만 아직 적용되지 않은 필터 (Staged) */
+.filter-thumb-card.active-staged {
+  border: 2px solid #0d6efd; /* 파란색 테두리 */
+  box-shadow: 0 0 8px rgba(13, 110, 253, 0.3);
+}
+
+/* 현재 적용된 필터 */
+.filter-thumb-card.active-applied {
+  border: 3px solid #198754; /* 더 굵은 녹색 테두리 */
+  box-shadow: 0 0 12px rgba(25, 135, 84, 0.5);
+}
+
+/* 필터 적용/제거 알림 스타일 */
+.filter-notification {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  z-index: 1050; /* 다른 요소들 위에 보이도록 */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  white-space: nowrap;
+}
+
+.filter-notification.show {
+  opacity: 1;
+}

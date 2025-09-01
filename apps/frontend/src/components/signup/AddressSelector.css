@@ -1,0 +1,12 @@
+.address-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.address-selector select,
+.address-selector input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

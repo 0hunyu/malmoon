@@ -1,0 +1,193 @@
+:root {
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --line: #e9eef6;
+  --shadow: 0 8px 22px rgba(0,0,0,0.08);
+
+  --primary: #4a90e2;   /* 말문 블루 */
+  --accent: #ff5a54;    /* '말' 빨간색 */
+  --soft: #f3f6fb;
+  --soft-hover: #e9f0fb;
+
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 10px;
+}
+
+/* 전역 배경 유지 + 상단 여백 넉넉히 */
+.user-matching-page {
+  background: transparent;
+  min-height: 100vh;
+  padding: 64px 0 64px;
+}
+
+.user-matching-container {
+  max-width: 1100px;
+}
+
+/* 헤더 */
+.page-header { text-align: center; margin-bottom: 24px; }
+.title {
+  font-size: 28px; font-weight: 900; letter-spacing: -0.02em; color: var(--text); margin: 0;
+}
+.title .brand-m { color: --accent; }
+.title .brand-m { color: var(--accent); }
+.title .brand-b { color: --accent; }
+.title .brand-b { color: var(--primary-color); }
+.subtitle { margin-top: 8px; color: var(--muted); font-size: 15px; }
+
+/* 툴바 */
+.toolbar {
+  display: flex; justify-content: space-between; gap: 16px; align-items: flex-end;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg);
+  padding: 14px 16px; margin: 18px 0 22px; box-shadow: var(--shadow);
+}
+.toolbar-left, .toolbar-right { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+
+.input-wrap, .select-wrap, .range-wrap { display: flex; flex-direction: column; gap: 6px; }
+.label { font-size: 12px; color: var(--muted); }
+
+.search-input, .select, .years-input {
+  height: 40px; border-radius: var(--radius-sm); border: 1px solid var(--line);
+  padding: 0 12px; outline: none; background: #fff; color: var(--text);
+  transition: box-shadow .15s ease, border-color .15s ease;
+}
+.search-input { width: min(54vw, 420px); }
+.select { width: 160px; }
+.years-input { width: 120px; }
+.search-input:focus, .select:focus, .years-input:focus {
+  border-color: #c9d7ef; box-shadow: 0 0 0 4px rgba(74,144,226,0.15);
+}
+
+/* ===== 4열 고정 그리드 ===== */
+.therapist-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 데스크탑: 4칸 고정 */
+  gap: 18px;
+}
+
+/* 카드 */
+.therapist-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "avatar info"
+    "actions actions";
+  column-gap: 14px;
+  row-gap: 12px;
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+
+/* 아바타 */
+.avatar {
+  grid-area: avatar;
+  width: 64px; height: 64px; border-radius: 50%;
+  background: linear-gradient(135deg, #e7f0ff, #fff0dc);
+  display: grid; place-items: center; border: 1px solid #e6ebf4;
+}
+.initial { font-weight: 800; color: #2b3a55; font-size: 20px; }
+
+/* 캐릭터 이미지가 원형 아바타에 꽉 차게 */
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* 정보 */
+.info { grid-area: info; }
+.name-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.name { font-size: 18px; font-weight: 800; color: var(--text); margin: 0; }
+.badge {
+  font-size: 12px; font-weight: 700; padding: 6px 10px;
+  background: #fff3e8; color: #b45309; border: 1px solid #ffe3c7; border-radius: 999px;
+}
+.meta { color: var(--muted); font-size: 14px; margin: 2px 0; text-align: left;}
+
+/* 액션 */
+.actions { grid-area: actions; display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+
+/* 버튼 */
+.mm-btn { height: 40px; padding: 0 14px; border-radius: 12px; font-weight: 700; border: 0; cursor: pointer;
+  transition: transform .08s ease, filter .08s ease, background .12s ease, border-color .12s ease; }
+.mm-btn:active { transform: translateY(1px); }
+.mm-btn.primary { background: var(--primary); color: #fff; }
+.mm-btn.primary:hover { filter: brightness(0.95); }
+.mm-btn.secondary { background: var(--soft); color: #223049; border: 1px solid #e6ecf5; }
+.mm-btn.secondary:hover { background: var(--soft-hover); border-color: #dce6f7; }
+.mm-btn.ghost { background: transparent; color: var(--primary); border: 1px dashed #c9d7ef; }
+.mm-btn.ghost:hover { background: #f7fbff; }
+
+/* 알림 */
+.alert-wrap .mm-alert { border-radius: var(--radius-md); }
+
+/* 빈 상태 */
+.empty-state {
+  grid-column: 1 / -1;
+  background: var(--card);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-lg);
+  padding: 36px 18px; text-align: center; color: var(--muted);
+}
+.empty-state h3 { margin: 8px 0 6px; color: var(--text); font-weight: 800; }
+.empty-emoji { font-size: 28px; }
+
+/* 스켈레톤 */
+.skeleton { position: relative; overflow: hidden; }
+.skeleton::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.45), rgba(255,255,255,0));
+  transform: translateX(-100%); animation: shimmer 1.2s infinite;
+}
+.skeleton-box { background: #eef3fb; }
+.skeleton-line { height: 14px; background: #eef3fb; border-radius: 6px; margin: 8px 0; }
+.skeleton-line.short { width: 60%; }
+.skeleton-line.shorter { width: 40%; }
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+
+/* 페이지네이션 */
+.pagination-wrap {
+  display: flex; justify-content: center; align-items: center; gap: 8px;
+  margin-top: 22px; flex-wrap: wrap;
+}
+.page-btn {
+  min-width: 36px; height: 36px; padding: 0 10px;
+  border-radius: 10px; border: 1px solid var(--line);
+  background: #fff; color: var(--text); font-weight: 700; cursor: pointer;
+  transition: background .12s ease, border-color .12s ease, transform .08s ease;
+}
+.page-btn:hover { background: #f7fbff; border-color: #dbe6f7; }
+.page-btn:disabled { opacity: .5; cursor: not-allowed; }
+.page-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+.page-btn:active { transform: translateY(1px); }
+
+.mm-badge {
+  font-size: 12px; font-weight: 700; padding: 6px 10px;
+  background: #fff3e8; color: #b45309;
+  border: 1px solid #ffe3c7; border-radius: 999px;
+}
+
+/* 반응형: 작은 화면에서 3→2→1칸 */
+@media (max-width: 1024px) {
+  .therapist-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .user-matching-page { padding-top: 48px; }
+  .toolbar { flex-direction: column; align-items: stretch; }
+  .toolbar-right { justify-content: space-between; }
+  .search-input { width: 100%; }
+  .therapist-grid { grid-template-columns: repeat(2, 1fr); }
+  .therapist-card { grid-template-columns: 56px 1fr; }
+  .avatar { width: 56px; height: 56px; }
+}
+@media (max-width: 480px) {
+  .therapist-grid { grid-template-columns: 1fr; }
+}

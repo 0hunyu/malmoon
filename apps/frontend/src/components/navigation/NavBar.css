@@ -1,0 +1,246 @@
+/* NavBar.css */
+
+/* ===== 헤더 래퍼 ===== */
+.navbar-wrapper {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background-color: #fff0dc;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* ===== 컨테이너: 왼쪽 정렬 + 사이즈/여백 업 ===== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;   /* 왼쪽 정렬 */
+  max-width: 1180px;             /* 살짝 좁혀 중앙 감각 */
+  margin: 0 auto;
+  padding: 18px 48px;            /* 좌우 여백 ↑ : 로고/프로필 가장자리에서 띄움 */
+}
+
+/* 넓은 화면에서 더 중앙 느낌 */
+@media (min-width: 1280px) {
+  .navbar { max-width: 1120px; }
+}
+
+/* ===== 로고 ===== */
+.logo-link { display: flex; align-items: center; }
+.logo {
+  height: 72px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+.logo:hover { transform: scale(1.05); }
+
+/* ===== 가운데 메뉴(로고 옆으로 바짝) ===== */
+.menu {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-left: 22px;
+}
+
+/* 메뉴/우측-인증공용 버튼 스타일 공유 */
+.menu a,
+.auth-actions a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 17px;
+  color: #3a2e1f;
+  padding: 10px 18px;
+  border-radius: 12px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform .1s ease;
+}
+.menu a:hover,
+.auth-actions a:hover {
+  background-color: #ffe0b2;
+  color: #2a2218;
+  transform: translateY(-1px);
+}
+
+/* ===== 우측 컨트롤 ===== */
+.right-controls {
+  margin-left: auto;            /* 오른쪽 끝으로 밀기 */
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 비로그인 우측 버튼 묶음 */
+.auth-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* 채팅 아이콘 버튼(로그인+일반유저 전용) */
+.chat-icon-btn {
+  border: none;
+  background: transparent;
+  padding: 6px;
+  cursor: pointer;
+  line-height: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+}
+.chat-icon-btn img {
+  width: 36px;
+  height: 36px;
+  display: block;
+}
+.chat-icon-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.95);
+}
+
+/* ===== 모바일 메뉴 아이콘 ===== */
+.menu-icon {
+  font-size: 32px;
+  cursor: pointer;
+  user-select: none;
+  display: none;
+  margin-left: 12px;
+}
+.menu-icon.open { transform: rotate(90deg); }
+
+/* ===== 모바일 드롭다운 메뉴 ===== */
+.dropdown-menu-mobile {
+  display: none;
+  flex-direction: column;
+  background-color: #fff7e9;
+  padding: 16px 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  position: absolute;
+  width: 100%;
+  top: 92px;                     /* 헤더 높이 보정 */
+  left: 0;
+  z-index: 999;
+}
+.dropdown-menu-mobile a {
+  text-decoration: none;
+  color: #3a2e1f;
+  font-weight: 600;
+  padding: 12px 0;
+  border-bottom: 1px solid #e8d6b9;
+}
+.dropdown-menu-mobile a:last-child { border-bottom: none; }
+
+/* ===== 프로필 아바타 + 인사문구 트리거(투명 박스 클릭) ===== */
+.profile-menu { position: relative; }
+.profile-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 6px;          /* 클릭 영역 확보 (시각적으로는 투명) */
+  border: none;              /* 테두리 제거 */
+  background: transparent;   /* 배경 제거 */
+  cursor: pointer;
+}
+.profile-trigger:hover { filter: brightness(0.98); }
+
+/* 아바타 이미지 */
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 9999px;
+  border: 2px solid #e5e7eb;
+  display: block;
+}
+
+/* 인사문구 */
+.profile-greeting {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.1;
+}
+.profile-greeting .nickname {
+  font-size: 15px;
+  font-weight: 700;
+  color: #3a2e1f;
+}
+.profile-greeting .welcome {
+  margin-top: 2px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #7a6650;
+}
+
+/* ▼/▲ 캐럿 */
+.caret {
+  margin-left: 4px;
+  font-size: 12px;
+  line-height: 1;
+  user-select: none;
+}
+
+/* 드롭다운 */
+.profile-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 12px);
+  min-width: 200px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+  padding: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity .15s ease, transform .15s ease;
+  z-index: 1200;
+}
+.profile-menu.open .profile-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.profile-dropdown::before {
+  content: "";
+  position: absolute;
+  top: -8px; right: 20px;
+  width: 12px; height: 12px;
+  background: #fff;
+  border-left: 1px solid #eee;
+  border-top: 1px solid #eee;
+  transform: rotate(45deg);
+}
+
+.profile-dropdown-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 700;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.profile-dropdown-item:hover { background: #f7f7f7; }
+.profile-dropdown-item.danger { color: #c0392b; }
+
+/* ===== 데스크톱 전용 표시 ===== */
+.desktop-only {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 768px) {
+  .menu { display: none; }
+  .menu-icon { display: block; }
+  .dropdown-menu-mobile { display: flex; }
+
+  /* 모바일: 우측 컨트롤 숨기고, 메뉴에서 로그인/회원가입 노출 */
+  .desktop-only { display: none; }
+}

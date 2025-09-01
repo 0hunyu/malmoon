@@ -1,0 +1,203 @@
+/* src/pages/Therapist/TherapistSessionRoom.css */
+
+/* --- Layouts --- */
+.session-room-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f2f5;
+  padding: 0;
+}
+
+.session-main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* 부드러운 패딩 전환 효과 추가 */
+  transition: padding-right 0.3s ease-in-out;
+}
+
+/* 툴 패널이 열렸을 때 오른쪽 패딩을 추가 */
+.session-main-content.has-tool-panel {
+  padding-right: 300px; /* 툴 패널 너비만큼 패딩 추가 */
+}
+
+/* --- Video Containers --- */
+.main-video-area {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #343a40;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-video-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.main-video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: black;
+}
+
+.main-video-container.speaking {
+  border: 5px solid #007bff;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
+  transition: border-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+}
+
+.pip-video-container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 200px;
+  height: 150px;
+  background-color: #000;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.pip-video-container video,
+.pip-video-container canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* --- Control Panel & UI Elements --- */
+.control-panel {
+  background-color: #ffffff;
+  padding: 10px 20px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70px;
+}
+
+.control-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  padding: 8px 12px;
+  border-radius: 8px;
+  min-width: 80px;
+}
+
+/* --- Chat Panel Styles (통합 및 정리) --- */
+.chat-panel {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  /* 이 부분이 수정되었습니다: height 대신 top과 bottom으로 높이 설정 */
+  /* bottom 값을 control-panel의 최소 높이(70px)와 동일하게 설정하여 겹치지 않게 함 */
+  bottom: 70px; 
+  width: 300px;
+  background-color: #ffffff;
+  border-left: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* 패널이 숨겨져 있을 때의 스타일 */
+.chat-panel.hidden {
+  transform: translateX(100%);
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-message {
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 15px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.my-message {
+  align-self: flex-end;
+  background-color: #dcf8c6;
+  color: #333;
+}
+
+.other-message {
+  align-self: flex-start;
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.chat-input-area {
+  padding: 10px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+}
+
+.chat-input-area input {
+  flex-grow: 1;
+  border: 1px solid #ced4da;
+  border-radius: 20px;
+  padding: 8px 15px;
+  margin-right: 10px;
+}
+
+.chat-input-area button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.chat-input-area button:hover {
+  background-color: #0056b3;
+}
+
+.selected-sentence-display,
+.received-sentence-display {
+  position: absolute;
+  bottom: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #FFFFFF;
+  padding: 12px 24px;
+  border-radius: 15px;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  max-width: 80%;
+  z-index: 30;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: opacity 0.3s ease-in-out;
+}

@@ -1,0 +1,223 @@
+/* ===== 페이지 공통: 폭 & 타이포 ===== */
+.page-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.page-title {
+  font-family: 'Pretendard', 'Noto Sans KR', system-ui, -apple-system, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #1f2937;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+/* ===== Hover “올라감” 제거 ===== */
+.no-hover-btn,
+.no-hover-btn:focus,
+.no-hover-btn:active {
+  transition: none !important;
+  filter: none !important;
+}
+
+.no-lift,
+.no-lift:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.card-base,
+.card,
+.btn,
+.matching-client-item {
+  transition: none !important;
+}
+
+.card:hover,
+.card-base:hover,
+.btn:hover,
+.matching-client-item:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* ===== 리스트 카드 ===== */
+.matching-client-list { list-style: none; padding: 0; }
+
+.matching-client-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+}
+
+.client-row { display: flex; gap: 12px; align-items: center; }
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: #fff;              /* 중립 */
+  border: 1px solid #e5e7eb;     /* 중립 */
+  padding: 6px;
+}
+
+.client-text h5 {
+  font-size: 1.1rem;
+  color: #111827;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.client-text p {
+  font-size: 0.95rem;
+  color: #344054;
+  margin-bottom: 4px;
+}
+
+.matching-client-info { flex: 1 1 60%; margin-bottom: 10px; }
+.matching-client-actions { flex: 1 1 35%; display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
+
+/* ===== Soft Buttons ===== */
+.btn-soft-primary {
+  background-color: #e6f2ff;
+  color: #0d6efd;
+  border-color: #cce5ff;
+}
+.btn-soft-primary:hover:enabled,
+.btn-soft-primary:focus {
+  background-color: #e6f2ff;
+  color: #0d6efd;
+  border-color: #cce5ff;
+  box-shadow: none;
+}
+
+.btn-soft-success {
+  background-color: #e8f7ef;
+  color: #198754;
+  border-color: #cfeadf;
+}
+.btn-soft-success:hover:enabled,
+.btn-soft-success:focus {
+  background-color: #e8f7ef;
+  color: #198754;
+  border-color: #cfeadf;
+  box-shadow: none;
+}
+
+.btn-soft-danger {
+  background-color: #fdecec;
+  color: #dc3545;
+  border-color: #f9cfd3;
+}
+.btn-soft-danger:hover:enabled,
+.btn-soft-danger:focus {
+  background-color: #fdecec;
+  color: #dc3545;
+  border-color: #f9cfd3;
+  box-shadow: none;
+}
+
+/* ===== Alert 개선 ===== */
+.alert-info {
+  background-color: #eef6ff;
+  color: #0b5ed7;
+  border: 1px solid #cfe2ff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.alert-danger {
+  background-color: #fff4f4;
+  color: #c62828;
+  border: 1px solid #ffc6c6;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* 헤더 우측 액션 영역 */
+.page-header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* 헤더 버튼 밀도 맞춤 */
+.page-header-btn {
+  border-radius: 10px;
+  padding: 6px 12px;
+  font-weight: 600;
+}
+
+/* 아이콘과 텍스트 간격 */
+.page-header-btn .bi {
+  vertical-align: -0.15em;
+}
+
+/* 요청자 정보 보기 버튼 길이 완화 */
+.info-btn {
+  width: auto;
+  min-width: 140px;
+}
+
+/* 수락/거절 버튼 줄 분리 + 간격 */
+.action-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 768px) {
+  .matching-client-item { flex-direction: column; align-items: flex-start; }
+  .matching-client-info { width: 100%; margin-bottom: 12px; }
+  .matching-client-actions { width: 100%; justify-content: flex-start; }
+}
+
+/* =========================================================
+   강제 색상 고정 (글로벌 전역 무시)
+   페이지 스코프(.therapist-matching-page) + !important
+   뒤로가기/거절 = 빨간색, 수락 = 파란색
+   ========================================================= */
+.therapist-matching-page .btn-force-red,
+.therapist-matching-page .btn-force-red:hover,
+.therapist-matching-page .btn-force-red:focus,
+.therapist-matching-page .btn-force-red:active,
+.therapist-matching-page .btn-force-red:disabled {
+  background-color: #dc3545 !important; /* 빨간색 */
+  color: #ffffff !important;
+  border-color: #dc3545 !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+
+.therapist-matching-page .btn-force-blue,
+.therapist-matching-page .btn-force-blue:hover,
+.therapist-matching-page .btn-force-blue:focus,
+.therapist-matching-page .btn-force-blue:active,
+.therapist-matching-page .btn-force-blue:disabled {
+  background-color: #0d6efd !important; /* 파란색 */
+  color: #ffffff !important;
+  border-color: #0d6efd !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}

@@ -1,0 +1,116 @@
+# ============================================
+# 🌱 기본 Java + Gradle + IntelliJ + STS 환경
+# Generated via gitignore.io + 정리 및 확장
+# ============================================
+
+application.properties
+apps/backend/src/main/resources/application.properties
+
+### Java ###
+*.class
+*.log
+*.ctxt
+.mtj.tmp/
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+replay_pid*
+
+### Gradle ###
+.gradle/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle-wrapper.properties
+.gradletasknamecache
+gradle-app.setting
+
+# 테스트 결과 및 커버리지 리포트
+test-results/
+reports/
+*.exec
+
+# Eclipse Gradle plugin (Eclipse Core, JDT 등)
+.project
+.classpath
+
+# Java heap dump
+*.hprof
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea_modules/
+out/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/**/aws.xml
+.idea/**/contentModel.xml
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+.idea/**/gradle.xml
+.idea/**/libraries
+.idea/**/mongoSettings.xml
+.idea/**/replstate.xml
+.idea/**/sonarlint/
+.idea/**/sonarIssues.xml
+.idea/**/markdown-navigator.xml
+.idea/**/markdown-navigator-enh.xml
+.idea/**/markdown-navigator/
+.idea/**/httpRequests
+.idea/**/azureSettings.xml
+.idea/codestream.xml
+.idea/caches/build_file_checksums.ser
+.idea/$CACHE_FILE$
+.idea_modules/
+
+# IntelliJ 예외: 소스 디렉토리 내 빌드/출력은 포함
+!**/src/main/**/build/
+!**/src/test/**/build/
+!**/src/main/**/out/
+!**/src/test/**/out/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### STS(Spring Tool Suite) ###
+.apt_generated
+.factorypath
+.settings/
+.springBeans
+.sts4-cache
+bin/
+
+### VS Code ###
+.vscode/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### 환경 변수 파일 ###
+.env
+*.env
+
+### OS별 무시 파일 ###
+.DS_Store
+Thumbs.db
+
+### Lombok 설정 ###
+lombok.config

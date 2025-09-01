@@ -1,0 +1,192 @@
+/* TherapistProfileModal.css – pastel & clean theme */
+.therapist-profile-modal {
+  /* 이 모달 전용 팔레트/스케일 */
+  --tm-primary: #1f2937;          /* 본문 텍스트 */
+  --tm-secondary: #4b5563;        /* 보조 텍스트 */
+  --tm-accent: #4a90e2;           /* 포인트 컬러 */
+  --tm-band: #fff4e6;             /* 헤더 파스텔 밴드 */
+  --tm-band-border: #f0dcc7;      /* 밴드 경계 */
+  --tm-muted: #f8fafc;            /* 라이트 배경 */
+  --tm-border: #e5e7eb;           /* 경계선 */
+  --tm-radius: 18px;
+  --tm-radius-sm: 12px;
+  --tm-shadow: 0 2px 8px rgba(16,24,40,0.1);
+  --tm-shadow-lg: 0 12px 28px rgba(16,24,40,0.12);
+}
+
+/* 모달 껍데기 */
+.therapist-profile-modal .modal-content {
+  border-radius: var(--tm-radius);
+  overflow: hidden;
+  box-shadow: var(--tm-shadow-lg);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* 헤더: 파스텔 밴드 + 하이라이트 */
+.therapist-profile-modal .modal-header {
+  background: var(--tm-band);
+  border-bottom: 2px solid var(--tm-band-border);
+  padding: 1.25rem 1.5rem;
+}
+.therapist-profile-modal .modal-title {
+  font-weight: 800;
+  color: var(--tm-primary);
+  letter-spacing: 0.2px;
+}
+
+/* 바디 기본 여백 */
+.therapist-profile-modal .modal-body {
+  padding: 1.75rem;
+}
+
+/* 프로필 영역 */
+.therapist-profile-modal .profile-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.therapist-profile-modal .profile-image,
+.therapist-profile-modal .profile-initial {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  flex: 0 0 120px;
+  box-shadow: var(--tm-shadow);
+  border: 4px solid #e6eef9; /* 은은한 링 */
+}
+
+.therapist-profile-modal .profile-image {
+  object-fit: cover;
+}
+
+/* 이미지가 없을 때 이니셜 스타일 */
+.therapist-profile-modal .profile-initial {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #e8f1ff 0%, #f8fbff 100%);
+  color: var(--tm-accent);
+  font-weight: 800;
+  font-size: 36px;
+}
+
+/* 텍스트 정보 */
+.therapist-profile-modal .profile-info h4 {
+  font-weight: 800;
+  margin: 0 0 0.375rem 0;
+  color: var(--tm-primary);
+}
+.therapist-profile-modal .profile-info p {
+  color: var(--tm-secondary);
+  margin: 0.125rem 0;
+}
+
+/* 카드 공통 */
+.therapist-profile-modal .card {
+  border: none;
+  border-radius: var(--tm-radius-sm);
+  box-shadow: var(--tm-shadow);
+  background: #fff;
+}
+.therapist-profile-modal .card + .card {
+  margin-top: 1rem;
+}
+
+/* 카드 헤더: 라이트 톤 + 포인트 */
+.therapist-profile-modal .card-header {
+  background: var(--tm-muted);
+  font-weight: 700;
+  color: var(--tm-primary);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  padding: 0.9rem 1.25rem;
+}
+
+/* 리스트 아이템 */
+.therapist-profile-modal .list-group-item {
+  border: none;
+  padding: 0.9rem 1.25rem;
+  border-top: 1px solid #f1f3f5;
+}
+.therapist-profile-modal .list-group-item:first-child {
+  border-top: none;
+}
+.therapist-profile-modal .list-group-item strong {
+  color: var(--tm-primary);
+}
+
+/* 경력 아이템 */
+.therapist-profile-modal .career-item {
+  padding: 1.1rem 1.25rem;
+  border-bottom: 1px solid #f1f3f5;
+}
+.therapist-profile-modal .career-item:last-child {
+  border-bottom: none;
+}
+.therapist-profile-modal .career-item h6 {
+  font-weight: 800;
+  color: var(--tm-primary);
+  margin-bottom: 0.25rem;
+}
+.therapist-profile-modal .career-item p,
+.therapist-profile-modal .career-item small {
+  color: var(--tm-secondary);
+}
+
+/* 푸터 */
+.therapist-profile-modal .modal-footer {
+  border-top: none;
+  padding: 1.25rem 1.5rem;
+  background: #fff;
+}
+
+/* === 커스텀 버튼 === */
+.tm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;            /* 알약 형태 */
+  font-weight: 700;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform .08s ease, filter .08s ease, background .12s ease, border-color .12s ease;
+}
+
+.tm-btn:active {
+  transform: translateY(1px);
+}
+
+.tm-btn-primary {
+  background: var(--tm-accent);
+  color: #fff;
+  border-color: rgba(0,0,0,0.02);
+  box-shadow: 0 6px 14px rgba(74,144,226,0.25);
+}
+
+.tm-btn-primary:hover {
+  filter: brightness(0.96);
+}
+
+.tm-btn-primary:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px rgba(74,144,226,0.18);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .therapist-profile-modal .profile-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .therapist-profile-modal .profile-image,
+  .therapist-profile-modal .profile-initial {
+    width: 100px;
+    height: 100px;
+    flex: 0 0 100px;
+  }
+  .therapist-profile-modal .modal-body {
+    padding: 1.25rem;
+  }
+}

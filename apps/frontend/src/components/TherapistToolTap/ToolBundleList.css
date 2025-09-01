@@ -1,0 +1,174 @@
+/* AacSetList.css / FilterSetList.css / ToolBundleList.css */
+
+.aac-set-list-container,
+.filter-set-list-container,
+.tool-bundle-list-container {
+  padding-top: 0.5rem;
+}
+
+.aac-set-list-group,
+.filter-set-list-group,
+.tool-bundle-list-group {
+  display: flex; /* Flexbox 레이아웃 활성화 */
+  flex-wrap: wrap; /* 항목들이 넘칠 경우 다음 줄로 넘어가도록 설정 */
+  gap: 16px; /* 항목들 사이의 간격 설정 */
+  justify-content: flex-start;
+  border: none;
+  box-shadow: none;
+}
+
+.aac-set-list-item,
+.filter-set-list-item,
+.tool-bundle-list-item {
+  flex: 1 1 calc(50% - 8px); /* 한 줄에 두 개씩 배치되도록 너비 설정 */
+  min-width: 300px; /* 아이템의 최소 너비 설정 (화면이 작아질 때 대비) */
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #e0e6f1;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  padding: 0;
+  margin-bottom: 0 !important; /* 원래 margin-bottom 제거 */
+}
+
+/* ✅ [수정] 좌측 악센트 바 (그라데이션 추가) */
+.aac-set-list-item::before,
+.filter-set-list-item::before,
+.tool-bundle-list-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 6px;
+  background-image: var(--primary-gradient);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.aac-set-list-item:hover,
+.filter-set-list-item:hover,
+.tool-bundle-list-item:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  background-color: #fcfdff;
+}
+
+.aac-set-list-item:hover::before,
+.filter-set-list-item:hover::before,
+.tool-bundle-list-item:hover::before {
+  width: 8px;
+  opacity: 1;
+}
+
+/* ✅ [수정] 카드 내부 구조 */
+.list-item-content {
+  padding: 20px 24px 20px 30px; /* 좌측 여백 확보 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-item-body {
+  flex-grow: 1;
+  padding-right: 120px; /* 버튼 공간 확보 */
+}
+
+.item-title-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.item-title-icon {
+  color: var(--primary-color);
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.aac-set-item-title,
+.filter-set-item-title,
+.tool-bundle-item-title {
+  font-family: 'Jua', 'Gamja Flower', 'Gowun Dodum', sans-serif;
+  font-size: 1.3rem;
+  color: #343a40;
+  margin: 0;
+}
+
+.aac-set-item-description,
+.filter-set-item-description,
+.tool-bundle-item-description {
+  font-family: 'Gowun Dodum', sans-serif;
+  font-size: 0.95rem;
+  color: #868e96; /* 더 연하게 */
+  margin: 0;
+  padding-left: 36px;
+  line-height: 1.6;
+}
+
+/* ✅ [추가] ToolBundle의 Footer (태그 영역) */
+.list-item-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+  padding-left: 36px;
+}
+.bundle-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  background-color: #f1f3f5;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #495057;
+  border: 1px solid #dee2e6;
+}
+.bundle-tag svg {
+  margin-right: 6px;
+  color: #868e96;
+}
+
+
+/* 버튼 배치 및 인터랙션 (기존 코드 유지) */
+.aac-set-actions,
+.filter-set-actions,
+.tool-bundle-actions {
+  position: absolute;
+  top: 50%;
+  right: 28px;
+  transform: translateY(-50%) translateX(20px);
+  opacity: 0;
+  display: flex;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.aac-set-list-item:hover .aac-set-actions,
+.filter-set-list-item:hover .filter-set-actions,
+.tool-bundle-list-item:hover .tool-bundle-actions {
+  transform: translateY(-50%) translateX(0);
+  opacity: 1;
+}
+
+/* 빈 목록 플레이스홀더 (기존 코드 유지) */
+.empty-list-placeholder {
+  background-color: rgba(255,255,255,0.6);
+  border: 2px dashed var(--accent-pastel-border);
+  border-radius: var(--border-radius-md);
+  padding: 2.5rem;
+  text-align: center;
+  color: #6c757d;
+}
+.empty-list-placeholder h5 {
+  font-family: 'Jua', 'Gamja Flower', 'Gowun Dodum', sans-serif;
+  font-weight: 600;
+  color: #495057;
+  font-size: 1.2rem;
+}
+.empty-list-placeholder p {
+  font-family: 'Gowun Dodum', sans-serif;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}

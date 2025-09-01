@@ -1,0 +1,319 @@
+/* === 공통 스타일 === */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #f9f9f9, #e8f0ff);
+  font-family: sans-serif;
+  color: #333;
+}
+
+.assessment-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 1rem 1rem 1.5rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  margin-top: 30px;
+}
+
+/* === 카드 박스 === */
+.assessment-intro,
+.assessment-test {
+  background-color: #ffffffee;
+  width: 100%;
+  max-width: 520px;             /* 살짝 넓혀도, 내부 요소 정렬로 단정하게 */
+  padding: 20px 18px;
+  margin-top: 16px;
+  border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === 인트로 영역 === */
+.intro-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 .5rem;
+  color: #222;
+}
+
+.intro-kicker {
+  margin: 0 0 10px;
+  color: #556070;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.intro-card {
+  text-align: left;
+  background: #fff7ed;                /* 파스텔 피치 */
+  border: 1px solid #ffe3c7;
+  border-radius: 16px;
+  padding: 16px;
+  margin: 10px 0 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+}
+
+.intro-card-title {
+  margin: 0 0 8px;
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: #333;
+}
+
+.intro-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  color: #444;
+}
+
+.intro-list {
+  list-style: none;
+  padding: 0; margin: 12px 0 0;
+  display: grid; gap: 8px;
+}
+.intro-list li {
+  position: relative;
+  padding-left: 22px;
+  color: #404b5a;
+  line-height: 1.5;
+}
+.intro-list li::before {
+  content: "✔";
+  position: absolute; left: 0; top: 0;
+  color: #16a34a; font-weight: 700;
+}
+
+.intro-pills {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-top: 14px;
+}
+.pill {
+  font-size: 12px; font-weight: 700;
+  padding: 6px 10px;
+  background: #eef6ff;
+  color: #1e429f;
+  border: 1px solid #d7e7ff;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* === 질문 영역(정돈된 수직 스택) === */
+.question-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;                     /* 간격 일정 */
+}
+
+.assessment-image {
+  width: 240px;                  /* 이미지 크기 통일 */
+  height: auto;
+  margin: 4px 0 2px;
+  object-fit: contain;
+}
+
+.speaker-button {
+  font-size: 15px;
+  background-color: #ffb74d;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.speaker-button:hover { background-color: #ffa726; }
+
+.question-section p {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #3a3a3a;
+  margin: 6px 0 0;
+}
+
+/* === 버튼 영역(정렬 고정) === */
+.assessment-button,
+.btn-assessment {
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;              /* 버튼 폭 고정 → 덜 산만 */
+  padding: 12px 20px;
+  border: none;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.15s ease, filter 0.15s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.btn-start {
+  background-color: #4caf50;
+}
+.btn-start:hover {
+  filter: brightness(0.96);
+  transform: translateY(-1px);
+}
+
+.start-recording-btn { background-color: #4CAF50; }
+.start-recording-btn:hover { filter: brightness(0.96); transform: translateY(-1px); }
+
+.stop-recording-btn { background-color: #e53935; }
+.stop-recording-btn:hover { filter: brightness(0.96); transform: translateY(-1px); }
+
+.next-button { background-color: #2196F3; }
+.next-button:hover { filter: brightness(0.96); transform: translateY(-1px); }
+
+.assessment-button:disabled,
+.next-button:disabled {
+  background-color: #b0b0b0;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* 완료 메시지 */
+.assessment-test p {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  animation: fadeIn 0.4s ease-in-out;
+  margin: 8px 0 0;
+}
+
+/* 에러 텍스트 */
+.error-text {
+  color: #c0262a;
+  font-weight: 700;
+  margin: 6px 0 0;
+}
+
+/* 결과 카드 전체 */
+.result-card {
+  background-color: #ffffffee;
+  width: 100%;
+  max-width: 640px;             /* 🔹 폭 줄임 (기존 720 → 640) */
+  padding: 26px 22px;           /* 여유 패딩 */
+  margin-top: 20px;
+  border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.07);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* 헤더 영역 */
+.result-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;     /* 🔹 중앙 정렬 */
+  margin-bottom: 20px;         /* 🔹 아래 여백 늘림 */
+}
+
+.result-badge {
+  display: inline-block;
+  padding: 10px 18px;          /* 🔹 크기 키움 */
+  border-radius: 999px;
+  font-weight: 900;            /* 🔹 더 굵게 */
+  font-size: 1.2rem;           /* 🔹 글자 크게 */
+  letter-spacing: .02em;
+  background: #4a90e2;         /* 🔹 눈에 띄는 파랑 배경 */
+  color: #fff;
+  border: none;
+  box-shadow: 0 3px 8px rgba(74, 144, 226, 0.25);
+}
+
+/* 세로 4칸 레이아웃 */
+.result-grid-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 18px; /* 🔹 항목 간 간격 늘림 (기존 12px → 18px) */
+}
+
+/* 개별 블록 */
+.result-block {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  padding: 16px 18px;          /* 🔹 여유 패딩 */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+}
+
+/* 섹션별 구분선 색 */
+.result-evaluation { border-left: 4px solid #93c5fd; }
+.result-strengths { border-left: 4px solid #86efac; }
+.result-improvements { border-left: 4px solid #fca5a5; }
+.result-recommendations { border-left: 4px solid #fcd34d; }
+
+/* 타이틀 */
+.result-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;                  /* 🔹 아이콘과 제목 간 간격 */
+  margin-bottom: 8px;
+}
+
+.result-title .icon {
+  display: inline-flex;
+  width: 30px;                /* 🔹 살짝 확대 */
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #f5f7fb;
+  font-size: 16px;
+}
+
+.result-title h3 {
+  font-size: 1.15rem;         /* 🔹 제목 크기 살짝 키움 */
+  font-weight: 800;
+  margin: 0;
+}
+
+/* 본문 텍스트/리스트 */
+.result-text {
+  margin: 0;
+  color: #3b4655;
+  line-height: 1.65;
+}
+
+.result-list {
+  margin: 0;
+  padding-left: 18px;
+  color: #3b4655;
+  line-height: 1.65;
+}
+
+.result-empty {
+  margin: 0;
+  color: #7a8699;
+  font-style: italic;
+}
+
+/* 하단 버튼 영역 */
+.result-actions {
+  margin-top: 24px;           /* 🔹 버튼 위 여백 늘림 */
+  display: flex;
+  justify-content: center;
+}
+
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+  .result-grid {
+    grid-template-columns: 1fr; /* 1열로 전환 */
+  }
+}
+

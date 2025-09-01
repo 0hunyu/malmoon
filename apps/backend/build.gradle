@@ -1,0 +1,81 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.5.4'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.communet'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // === Spring Boot Starter 기본 의존성 ===
+    implementation 'org.springframework.boot:spring-boot-starter-web'              // Web (MVC + REST API)
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'         // JPA (DB 연동)
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'       // Redis 사용
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'        // WebSocket 사용
+    implementation 'org.springframework.boot:spring-boot-starter-validation'       // Bean Validation
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    // === OpenAPI (Swagger) 문서화 ===
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'       // Swagger UI + OpenAPI 3.0
+
+    // === AWS SDK (S3 업로드 등) ===
+    implementation 'software.amazon.awssdk:s3:2.25.33'                              // S3 클라이언트
+    implementation 'software.amazon.awssdk:auth:2.25.33'                            // AWS 인증 관련
+    implementation 'software.amazon.awssdk:regions:2.25.33'                         // 리전(region) 관련
+
+    // === Lombok (컴파일 시 자동 코드 생성: getter/setter 등) ===
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // === JWT 인증 ===
+    implementation "com.auth0:java-jwt:3.10.3"                                       // JWT 인증 토큰
+
+    // === Java 유틸 (Guava) ===
+    implementation 'com.google.guava:guava:32.1.2-jre'
+
+    // === Spring Security ===
+    implementation 'org.springframework.boot:spring-boot-starter-security'          // Spring Security
+    testImplementation 'org.springframework.security:spring-security-test'          // Security 테스트
+
+    // === 개발 중에만 사용되는 기능 (자동 재시작 등) ===
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    // === PostgreSQL DB 드라이버 ===
+    runtimeOnly 'org.postgresql:postgresql'
+
+    // === 테스트 관련 ===
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'          // Spring Boot 테스트 도구
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'                    // JUnit 런처
+    testImplementation 'org.mockito:mockito-core:5.12.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.12.0'
+
+    // === openVidu(Livekit) ===
+    implementation "io.livekit:livekit-server:0.8.5"
+    implementation 'com.squareup.retrofit2:retrofit:2.12.0'
+    implementation 'com.squareup.retrofit2:converter-protobuf:2.12.0'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+springBoot {
+    buildInfo()
+}

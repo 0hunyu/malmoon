@@ -1,0 +1,81 @@
+.category-list-container {
+    height: 65vh; /* 화면 높이의 70%를 최대 높이로 설정 */
+    overflow-y: auto; /* 내용이 넘칠 경우 세로 스크롤바 표시 */
+  }
+  
+  /* Custom Pagination Styles */
+  .custom-pagination .page-item .page-link {
+    border: none;
+    border-radius: 50%;
+    margin: 0 5px;
+    color: #6c757d;
+    background-color: transparent;
+    transition: all 0.3s;
+  }
+  
+  .custom-pagination .page-item.active .page-link {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  .custom-pagination .page-item.disabled .page-link {
+    color: #dee2e6;
+  }
+  
+  .custom-pagination .page-link:hover,
+  .custom-pagination .page-link:focus {
+    background-color: #e9ecef;
+    box-shadow: none;
+  }
+  
+  /* Item Card Image Styles */
+  .item-card .card-img-top {
+    height: 120px; /* 이미지 높이 유지 */
+    object-fit: contain; /* 이미지가 잘리지 않고 컨테이너 안에 맞도록 설정 */
+    padding: 1rem; /* 패딩을 늘려 이미지 주위의 공간 확보 */
+    background-color: #f8f9fa; /* 이미지 영역에 약간의 배경색 추가 */
+    display: block;
+    margin: 0 auto;
+    border: none; /* 이미지 자체의 테두리 제거 */
+    border-top-left-radius: 6px; /* 부모 카드와 모서리 반경 맞춤 */
+    border-top-right-radius: 6px;
+  }
+  
+  /* Flat & Bordered Card Style */
+  .item-card {
+    background-color: #fff;
+    border: 1px solid #dee2e6; /* 테두리를 약간 부드럽게 변경 */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* 부드러운 그림자 추가 */
+    transition: all 0.3s ease; /* transition 효과를 모든 속성에 적용 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .item-card:hover {
+    border-color: #007bff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 호버 시 그림자 강조 */
+    transform: translateY(-2px); /* 약간 위로 떠오르는 효과 */
+  }
+  
+  .item-card .card-body {
+    padding: 4px 0.75rem 0.75rem 0.75rem; /* 상단 패딩 줄이고, 하단은 유지 */
+    text-align: center;
+    background-color: #fff; /* 배경색 통일 */
+    border-top: none; /* 상단 경계선 제거 */
+  }
+  
+  .item-card .card-title {
+    margin-bottom: 0;
+    font-weight: 600; /* 제목 굵게 */
+    font-family: var(--font-family-secondary); /* Gowun Dodum 폰트 적용 */
+    line-height: 1.2;
+    min-height: 2.4em; /* 2줄 높이 확보 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  

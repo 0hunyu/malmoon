@@ -1,0 +1,13 @@
+# k6 테스트 결과 파일
+performance-test/result/
+performance-test/*.json
+
+# Node.js 설치 시 생기는 디렉토리
+performance-test/node_modules/
+
+# OS/IDE 관련
+.DS_Store
+*.log
+*.iml
+.idea/
+.vscode/

@@ -1,0 +1,15 @@
+node_modules
+.git
+.gitignore
+.DS_Store
+npm-debug.log*
+yarn.lock # (npm만 쓴다면)
+dist
+build
+coverage
+.next
+.cache
+*.zip
+*.mp4
+*.png
+*.jpg

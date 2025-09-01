@@ -1,0 +1,100 @@
+/* AacDisplay.css */
+.aac-display-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  padding: 20px;
+}
+
+.aac-question {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.aac-card-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.aac-card {
+  width: 200px;
+  height: 250px;
+  perspective: 1000px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.aac-card:hover {
+  transform: translateY(-15px) scale(1.05);
+}
+
+.aac-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.aac-card-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background-color: #f8f9fa;
+  color: black;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aac-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 선택 애니메이션 */
+.aac-card.selected .aac-card-inner {
+  animation: moveUpAndFadeOut 1.5s forwards ease-in-out;
+}
+
+.aac-card.hidden {
+  visibility: hidden;
+  transition: visibility 0s 0.5s;
+}
+
+@keyframes moveUpAndFadeOut {
+  0% {
+    transform: translateY(0) scale(1.05);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-150px) scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-300px) scale(1.2);
+    opacity: 0;
+  }
+}

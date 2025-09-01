@@ -1,0 +1,131 @@
+/* src/components/signup/ProfileImageSelect.css */
+
+/* TherapistProfileModal.css 팔레트가 있으면 그대로 사용, 없으면 fallback */
+.profile-picker {
+  --tm-primary: var(--tm-primary, #1f2937);
+  --tm-secondary: var(--tm-secondary, #4b5563);
+  --tm-accent: var(--tm-accent, #4a90e2);
+  --tm-muted: var(--tm-muted, #f8fafc);
+  --tm-border: var(--tm-border, #e5e7eb);
+  --tm-band: var(--tm-band, #fff4e6);
+  --tm-radius: var(--tm-radius, 18px);
+  --tm-radius-sm: var(--tm-radius-sm, 12px);
+  --tm-shadow: var(--tm-shadow, 0 2px 8px rgba(16,24,40,0.1));
+  --tm-shadow-lg: var(--tm-shadow-lg, 0 12px 28px rgba(16,24,40,0.12));
+}
+
+.profile-picker-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.picker-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .picker-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.profile-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid var(--tm-border);
+  border-radius: var(--tm-radius-sm);
+  box-shadow: var(--tm-shadow);
+  padding: 14px 12px;
+  cursor: pointer;
+  transition: transform .08s ease, box-shadow .12s ease, border-color .12s ease;
+}
+
+.profile-tile:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--tm-shadow-lg);
+  border-color: rgba(0,0,0,0.08);
+}
+
+.profile-tile.is-selected {
+  border-color: rgba(74,144,226,0.35);
+  box-shadow: 0 8px 18px rgba(74,144,226,0.22);
+}
+
+.avatar-wrap {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--tm-muted);
+  display: grid;
+  place-items: center;
+  border: 4px solid #e6eef9; /* 은은한 링 */
+  transition: border-color .12s ease, box-shadow .12s ease;
+}
+
+.profile-tile.is-selected .avatar-wrap {
+  border-color: var(--tm-accent);
+  box-shadow: 0 0 0 4px rgba(74,144,226,0.12);
+}
+
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.check-badge {
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--tm-accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(74,144,226,0.35);
+}
+.profile-tile.is-selected .check-badge { display: inline-flex; }
+
+.label {
+  font-weight: 700;
+  color: var(--tm-primary);
+  letter-spacing: 0.2px;
+}
+
+.actions {
+  height: 24px; /* 칩 높이 만큼 확보로 레이아웃 안정 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tm-chip {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 4px 10px;
+  color: var(--tm-secondary);
+  background: var(--tm-muted);
+  border: 1px solid var(--tm-border);
+}
+.tm-chip-active {
+  color: #fff;
+  background: var(--tm-accent);
+  border-color: rgba(0,0,0,0.02);
+  box-shadow: 0 6px 14px rgba(74,144,226,0.25);
+}

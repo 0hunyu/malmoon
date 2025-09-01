@@ -1,0 +1,176 @@
+/* AacItemModal.css */
+
+/* General Modal Styling */
+.aac-item-modal .modal-content {
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.aac-item-modal .modal-header {
+    background-color: #f8f9fa; /* Light background for header */
+    border-bottom: 1px solid #e9ecef;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 1.5rem;
+}
+
+.aac-item-modal .modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #343a40;
+}
+
+.aac-item-modal .btn-close {
+    font-size: 1.2rem;
+    color: #6c757d;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.aac-item-modal .btn-close:hover {
+    opacity: 1;
+}
+
+.aac-item-modal .modal-body {
+    padding: 2rem;
+    background-color: #ffffff;
+}
+
+.aac-item-modal .modal-footer {
+    background-color: #f8f9fa; /* Light background for footer */
+    border-top: 1px solid #e9ecef;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Form Group Styling */
+.aac-item-modal .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.aac-item-modal .form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* Form Control Styling */
+.aac-item-modal .form-control,
+.aac-item-modal .form-select {
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: #495057;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.aac-item-modal .form-control:focus,
+.aac-item-modal .form-select:focus {
+    border-color: #86b7fe; /* Light blue focus, can be changed if needed */
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25); /* Greenish focus shadow */
+    outline: none;
+}
+
+.aac-item-modal textarea.form-control {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* Radio Button Styling */
+.aac-item-modal .form-check-inline {
+    margin-right: 1.5rem;
+}
+
+.aac-item-modal .form-check-input:checked {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* Image Preview Card */
+.aac-item-modal .image-preview-card {
+    min-height: 180px; /* Increased height for better preview */
+    background-color: #f8f9fa;
+    border: 1px dashed #ced4da;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #6c757d;
+    overflow: hidden; /* Ensure image fits */
+}
+
+.aac-item-modal .image-preview-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 6px; /* Match card border radius */
+}
+
+/* Custom Buttons */
+.aac-item-modal .btn-cancel {
+    background-color: #6c757d; /* Gray for cancel */
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.aac-item-modal .btn-cancel:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+}
+
+.aac-item-modal .btn-save-add {
+    background-color: #28a745; /* Green for save/add */
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.aac-item-modal .btn-save-add:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+.aac-item-modal .btn-ai-generate {
+    background-color: #17a2b8; /* Info blue for AI generate, can be changed */
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.aac-item-modal .btn-ai-generate:hover {
+    background-color: #138496;
+    transform: translateY(-1px);
+}
+
+.aac-item-modal .spinner-border {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+}
+
+.aac-item-modal hr {
+    border-top: 1px solid #e9ecef;
+    margin: 2rem 0;
+}

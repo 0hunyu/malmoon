@@ -1,0 +1,227 @@
+:root {
+  --light-bg-color-3: #f4f8fb;
+  --light-bg-color-4: #fffaf0;
+  --primary-color: #4a90e2;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --border-radius-lg: 16px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 48px;
+
+  /* ✅ 파스텔 포인트 (2,3번에서 공통 사용) */
+  --accent-pastel: var(--light-bg-color-4);     /* 부드러운 크림톤 */
+  --accent-pastel-border: #eedfcb;              /* 살짝 짙은 경계선 */
+}
+
+.home-page {
+  padding: var(--spacing-lg) var(--spacing-sm);
+}
+
+.logo-header { text-align: center; }
+
+.main-logo {
+  max-width: 300px;
+  width: 80%;
+  height: auto;
+}
+
+/* ====== 타이포 ====== */
+.homepage-subtitle {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: var(--spacing-lg);
+  font-family: 'Jua', 'Gamja Flower', 'Gowun Dodum', sans-serif;
+  color: #333;
+  line-height: 1.8;
+}
+.homepage-subtitle p { font-size: 2rem !important; }
+.red-text { color: #e74c3c; font-weight: bold; }
+.blue-text { color: var(--primary-color); font-weight: bold; }
+
+/* ====== 슬라이더 ====== */
+.slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: var(--spacing-lg);
+}
+
+.slider-frame {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: clamp(260px, 60vh, 480px);
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 4px 12px var(--shadow-color);
+  background: transparent;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-image {
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 화살표: 기호만 보이게 (투명 배경) */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 48px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0 8px; /* 클릭 영역 확보 */
+  color: #ffffff;
+  line-height: 1;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  z-index: 2;
+}
+.arrow.left { left: 12px; }
+.arrow.right { right: 12px; }
+.arrow:hover,
+.arrow:focus { transform: translateY(-50%) scale(1.05); opacity: 0.9; outline: none; }
+
+/* 인디케이터 */
+.slider-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+.indicator {
+  width: 10px;
+  height: 10px;
+  background-color: var(--primary-color);
+  opacity: 0.35;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.indicator.active { opacity: 1; }
+
+/* ====== '우리는 무엇을 하나요?' 섹션 (레이어 분리) ====== */
+.about-section {
+  padding: calc(var(--spacing-lg) - 8px) var(--spacing-sm);
+  text-align: center;
+  background: var(--accent-pastel);          /* ✅ 파스텔 배경 */
+  border-top: 2px solid var(--accent-pastel-border);/* ✅ 상단 선 */
+  border-bottom: 2px solid var(--accent-pastel-border);/* ✅ 하단 선 */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.04), 0 -6px 16px rgba(0,0,0,0.03); /* 살짝 층감 */
+}
+.section-title {
+  font-family: 'Jua', 'Gamja Flower', 'Gowun Dodum', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 var(--spacing-md) 0;
+}
+.about-section p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: 'Gowun Dodum', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: #444;
+}
+
+/* ====== 캐릭터 ====== */
+.character-info-section {
+  padding: var(--spacing-lg) var(--spacing-sm);
+}
+
+.character-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+}
+
+/* 카드 박스 제거 → 미니멀 레이아웃 */
+.character-item {
+  text-align: center;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* 원형 아바타 */
+.character-avatar {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto var(--spacing-sm);
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid var(--primary-color);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.character-avatar img {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+}
+
+/* ✅ 이름/설명 캡션만 따로 박스 처리 (2번과 동일 파스텔) */
+.character-caption {
+  background: var(--accent-pastel);
+  border: 1px solid var(--accent-pastel-border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  max-width: 280px;
+  margin: 0 auto;
+}
+.character-name {
+  font-family: 'Jua', 'Gamja Flower', 'Gowun Dodum', sans-serif;
+  font-size: 1.2rem;
+  margin: 2px 0 6px;
+  color: #333;
+}
+.character-desc {
+  font-family: 'Gowun Dodum', sans-serif;
+  font-size: 0.98rem;
+  color: #555;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ✅ 캐릭터 오버레이 스타일 추가 */
+.character-overlay.clickable {
+  cursor: pointer;
+  opacity: 0.95;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.character-overlay.clickable:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+
+/* ====== 반응형 ====== */
+@media screen and (max-width: 992px) {
+  .character-avatar { width: 120px; height: 120px; }
+  .character-caption { max-width: 260px; }
+}
+@media screen and (max-width: 768px) {
+  .slider-frame { height: 240px; }
+  .main-logo { max-width: 200px; }
+  .character-info-grid { grid-template-columns: repeat(2, 1fr); }
+  .character-avatar { width: 110px; height: 110px; }
+  .character-name { font-size: 1.1rem; }
+  .character-desc { font-size: 0.95rem; }
+}

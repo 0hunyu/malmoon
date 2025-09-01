@@ -1,0 +1,133 @@
+/* 공통 레이아웃 */
+.user-my-info-container {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2.5rem 3rem;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  font-family: 'Gowun Dodum', sans-serif;
+}
+
+/* 제목 */
+.user-my-info-container h4 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+}
+
+/* 알림 메시지 */
+.custom-alert {
+  transition: opacity 0.5s ease-in-out;
+  text-align: center;
+}
+.custom-alert.fade-out {
+  opacity: 0;
+}
+
+/* 프로필 이미지 */
+.profile-image-wrapper {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.profile-image-wrapper img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #ddd;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+.profile-image-wrapper img:hover {
+  border-color: #4a90e2;
+  transform: scale(1.05);
+}
+.profile-image-wrapper button {
+  margin-top: 0.5rem;
+}
+
+/* 기본 정보 */
+.basic-info-box {
+  margin-bottom: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #34495e;
+}
+.info-item-box {
+  margin-bottom: 1rem;
+}
+.info-value-box {
+  padding: 0.5rem 1rem;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 0.3rem;
+}
+
+/* 주소 표시 */
+.address-display {
+  padding: 0.75rem 1rem;
+  background-color: #ecf0f1;
+  border-radius: 8px;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* 편집 섹션 */
+.edit-section {
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+/* 버튼 간격 */
+.button-row {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* 경력 관련 */
+.career-box {
+  margin-top: 1.5rem;
+}
+.career-box .career-item {
+  background-color: #f0f4f7;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+.career-box .career-item:hover {
+  background-color: #e8eff5;
+}
+
+/* 폼 컨트롤 정리 */
+input[type='text'],
+input[type='number'],
+input[type='date'],
+textarea {
+  border-radius: 8px !important;
+}
+
+/* 경력 추가/수정 모드 카드 */
+.career-edit-card {
+  background-color: #fffaf4;
+  padding: 1rem;
+  border: 2px dashed #ffbb33;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+/* 모달 제목 */
+.modal-title {
+  font-weight: bold;
+  color: #34495e;
+}

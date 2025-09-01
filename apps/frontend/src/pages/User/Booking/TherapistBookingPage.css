@@ -1,0 +1,141 @@
+/* TherapistBookingPage.css — pastel & clean */
+.therapist-booking-page {
+  --tb-primary: #1f2937;
+  --tb-secondary: #4b5563;
+  --tb-accent: #4a90e2;   /* 포인트 파랑 */
+  --tb-band: #fff4e6;
+  --tb-band-border: #f0dcc7;
+  --tb-muted: #f8fafc;
+  --tb-border: #e5e7eb;
+  --tb-radius: 16px;
+  --tb-radius-sm: 12px;
+  --tb-shadow: 0 2px 8px rgba(16,24,40,0.1);
+  --tb-shadow-lg: 0 12px 26px rgba(16,24,40,0.12);
+}
+
+/* 타이틀 & 이름 강조 */
+.therapist-booking-page .page-title {
+  font-family: 'Jua', 'Gowun Dodum', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--tb-primary);
+  margin-bottom: 1rem;
+}
+.therapist-booking-page .name-accent {
+  color: var(--tb-accent);      /* 파란색 */
+  text-decoration: none;        /* 밑줄 제거 */
+  border-bottom: none;          /* 하단 보더 제거 */
+}
+
+/* 상담 신청 카드 - hover 들뜸 제거 */
+.therapist-booking-page .booking-card.card-base {
+  border-radius: var(--tb-radius);
+  box-shadow: var(--tb-shadow-lg);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: none;                       /* 효과 제거 */
+}
+.therapist-booking-page .booking-card.card-base:hover {
+  transform: none !important;             /* 들뜸 방지 */
+  box-shadow: var(--tb-shadow-lg);        /* 동일한 그림자 유지 */
+}
+
+/* 섹션 타이틀 */
+.therapist-booking-page .section-title {
+  font-weight: 800;
+  color: var(--tb-primary);
+}
+
+/* 요일 배지 */
+.therapist-booking-page .day-title { margin-bottom: .6rem; }
+.therapist-booking-page .day-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--tb-band);
+  border: 1px solid var(--tb-band-border);
+  color: var(--tb-primary);
+  font-weight: 700;
+  font-size: .95rem;
+}
+
+/* 시간 슬롯 그리드 */
+.therapist-booking-page .time-slot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+}
+.therapist-booking-page .time-slot-button.btn {
+  border-radius: 999px;
+  font-weight: 700;
+  padding: 10px 0;
+  box-shadow: var(--tb-shadow);
+}
+.therapist-booking-page .time-slot-button.btn-outline-secondary {
+  color: var(--tb-primary);
+  background: #fff;
+  border-color: var(--tb-border);
+}
+.therapist-booking-page .time-slot-button.btn-outline-secondary:hover {
+  border-color: var(--tb-accent);
+  color: var(--tb-accent);
+  transform: translateY(-1px);
+}
+.therapist-booking-page .time-slot-button.btn-primary {
+  background: var(--tb-accent);
+  border-color: var(--tb-accent);
+}
+.therapist-booking-page .time-slot-button.btn-primary:hover {
+  filter: brightness(0.96);
+  transform: translateY(-1px);
+}
+
+/* 선택 목록 배지(부트 .badge 대신 충돌 없는 커스텀) */
+.therapist-booking-page .badge-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.therapist-booking-page .mm-badge {
+  font-size: 12px; font-weight: 700; padding: 6px 10px;
+  background: #eef6ff; color: #1e429f;
+  border: 1px solid #d7e7ff; border-radius: 999px;
+}
+
+/* 날짜 스크롤 바(있다면)도 페이지 톤으로 */
+.therapist-booking-page .date-picker-container {
+  display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
+  padding-bottom: 10px; gap: 10px; margin-bottom: 16px; scroll-snap-type: x mandatory;
+}
+.therapist-booking-page .date-item {
+  flex-shrink: 0; min-width: 90px; padding: 10px 15px; text-align: center; cursor: pointer;
+  background: var(--tb-muted); border: 1px solid var(--tb-border);
+  border-radius: var(--tb-radius-sm); transition: all .2s ease; scroll-snap-align: start;
+}
+.therapist-booking-page .date-item:hover { background: #e9ecef; border-color: var(--tb-accent); }
+.therapist-booking-page .date-item.selected {
+  background: var(--tb-accent); color: #fff; border-color: var(--tb-accent);
+  font-weight: 800; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0, 123, 255, .2);
+}
+.therapist-booking-page .date-item .day-text { font-size: .9em; margin-bottom: 5px; }
+.therapist-booking-page .date-item .date-text { font-size: 1.1em; }
+
+/* '현재 예약 가능한 시간이 없습니다.' — 박스 없이 얇은 안내 텍스트 */
+.therapist-booking-page .empty-text {
+  margin: 8px 0 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+/* 제출 버튼: 하단 중앙, 적당한 너비 */
+.therapist-booking-page .submit-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+.therapist-booking-page .submit-button {
+  min-width: 220px;
+  border-radius: 12px;
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(16,24,40,0.10);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .therapist-booking-page .page-title { font-size: 1.7rem; }
+}

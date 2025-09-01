@@ -1,0 +1,155 @@
+/* ToolBundleModal.css */
+
+/* General Modal Styling */
+.tool-bundle-modal .modal-content {
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tool-bundle-modal .modal-header {
+    background-color: #f8f9fa; /* Light background for header */
+    border-bottom: 1px solid #e9ecef;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 1.5rem;
+}
+
+.tool-bundle-modal .modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #343a40;
+}
+
+.tool-bundle-modal .btn-close {
+    font-size: 1.2rem;
+    color: #6c757d;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.tool-bundle-modal .btn-close:hover {
+    opacity: 1;
+}
+
+.tool-bundle-modal .modal-body {
+    padding: 2rem;
+    background-color: #ffffff;
+}
+
+.tool-bundle-modal .modal-footer {
+    background-color: #f8f9fa; /* Light background for footer */
+    border-top: 1px solid #e9ecef;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Form Group Styling */
+.tool-bundle-modal .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.tool-bundle-modal .form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* Form Control Styling */
+.tool-bundle-modal .form-control,
+.tool-bundle-modal .form-select {
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: #495057;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tool-bundle-modal .form-control:focus,
+.tool-bundle-modal .form-select:focus {
+    border-color: #86b7fe; /* Light blue focus, can be changed if needed */
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25); /* Greenish focus shadow */
+    outline: none;
+}
+
+.tool-bundle-modal textarea.form-control {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* Custom Buttons */
+.tool-bundle-modal .btn-cancel {
+    background-color: #6c757d; /* Gray for cancel */
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.tool-bundle-modal .btn-cancel:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+}
+
+.tool-bundle-modal .btn-save-add {
+    background-color: #28a745; /* Green for save/add */
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.tool-bundle-modal .btn-save-add:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+/* ListGroup Selection Styling */
+.tool-bundle-modal .list-group-selection {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+}
+
+.tool-bundle-modal .list-group-item {
+    border: none; /* Remove individual item borders */
+    border-bottom: 1px solid #f0f0f0; /* Light separator */
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: #495057;
+    transition: background-color 0.2s ease;
+}
+
+.tool-bundle-modal .list-group-item:last-child {
+    border-bottom: none;
+}
+
+.tool-bundle-modal .list-group-item.active {
+    background-color: #e6ffe6; /* Soft green for active item */
+    color: #28a745; /* Green text for active item */
+    border-color: #cce5cc; /* Soft green border for active item */
+    font-weight: 600;
+}
+
+.tool-bundle-modal .list-group-item.active:hover {
+    background-color: #e6ffe6; /* Keep same on hover */
+    color: #28a745;
+}
+
+.tool-bundle-modal .list-group-item:hover {
+    background-color: #f8f9fa; /* Light hover background */
+}

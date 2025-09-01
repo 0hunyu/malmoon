@@ -1,0 +1,143 @@
+/* FilterSetModal.css */
+
+/* General Modal Styling */
+.filter-set-modal .modal-content {
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.filter-set-modal .modal-header {
+    background-color: #f8f9fa; /* Light background for header */
+    border-bottom: 1px solid #e9ecef;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 1.5rem;
+}
+
+.filter-set-modal .modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #343a40;
+}
+
+.filter-set-modal .btn-close {
+    font-size: 1.2rem;
+    color: #6c757d;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.filter-set-modal .btn-close:hover {
+    opacity: 1;
+}
+
+.filter-set-modal .modal-body {
+    padding: 2rem;
+    background-color: #ffffff;
+}
+
+.filter-set-modal .modal-footer {
+    background-color: #f8f9fa; /* Light background for footer */
+    border-top: 1px solid #e9ecef;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Form Group Styling */
+.filter-set-modal .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.filter-set-modal .form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* Form Control Styling */
+.filter-set-modal .form-control,
+.filter-set-modal .form-select {
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: #495057;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filter-set-modal .form-control:focus,
+.filter-set-modal .form-select:focus {
+    border-color: #86b7fe; /* Light blue focus, can be changed if needed */
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25); /* Greenish focus shadow */
+    outline: none;
+}
+
+.filter-set-modal textarea.form-control {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* Custom Buttons */
+.filter-set-modal .btn-cancel {
+    background-color: #6c757d; /* Gray for cancel */
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.filter-set-modal .btn-cancel:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+}
+
+.filter-set-modal .btn-save-add {
+    background-color: #28a745; /* Green for save/add */
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.filter-set-modal .btn-save-add:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+/* Loading Spinner */
+.filter-set-modal .spinner-border {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+    color: #28a745; /* Green spinner */
+}
+
+.filter-set-modal .loading-text {
+    font-size: 1.1rem;
+    color: #495057;
+}
+
+.filter-set-modal hr {
+    border-top: 1px solid #e9ecef;
+    margin: 2rem 0;
+}
+
+.filter-set-modal .filter-selection-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 1rem;
+}

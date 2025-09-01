@@ -1,0 +1,20 @@
+services:
+  influxdb:
+    image: influxdb:1.8
+    ports:
+      - "8086:8086" # InfluxDB 기본 포트
+    environment:
+      - INFLUXDB_DB=k6
+    volumes:
+      - influxdb:/var/lib/influxdb
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "33000:3000" # 여기서 외부 포트 33000 → 내부 Grafana 3000
+    volumes:
+      - grafana:/var/lib/grafana
+
+volumes:
+  influxdb:
+  grafana:

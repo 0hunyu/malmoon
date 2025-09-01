@@ -1,0 +1,100 @@
+/* FilterList.css */
+
+.filter-list-container {
+  font-family: 'Gowun Dodum', sans-serif;
+}
+
+/* tools-section으로 대체되었으므로 삭제 */
+/* .filter-section { ... } */
+
+/* section-title은 page-section-title로 대체되었으므로 삭제 */
+/* .section-title { ... } */
+
+.filter-card {
+  border: 1px solid #eee;
+  border-radius: var(--border-radius-md); /* 둥글게 */
+  overflow: hidden;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  height: 100%;
+  background-color: #fff;
+}
+
+.filter-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.card-img-top {
+  height: 140px;
+  object-fit: cover;
+  transition: filter 0.3s ease;
+}
+
+/* ... (나머지 스타일은 기존과 거의 동일, 필요한 경우 유지) ... */
+.filter-card .card-body {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75rem;
+    height: 60px;
+}
+
+.filter-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #495057;
+    margin: 0;
+    text-align: center;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: rgba(220, 53, 69, 0.8);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+}
+.filter-card:hover .delete-btn {
+    opacity: 1;
+    transform: scale(1);
+}
+.delete-btn:hover {
+    background-color: #dc3545;
+    box-shadow: 0 0 10px rgba(220, 53, 69, 0.5);
+}
+
+/* ... (empty-list-placeholder 스타일은 AacSetList.css와 동일) ... */
+.empty-list-placeholder {
+    background-color: rgba(255,255,255,0.6);
+    border: 2px dashed var(--accent-pastel-border);
+    border-radius: var(--border-radius-md);
+    padding: 2.5rem;
+    text-align: center;
+    color: #6c757d;
+}
+.empty-list-placeholder h5 {
+    font-family: 'Jua', 'Gamja Flower', 'Gowun Dodum', sans-serif;
+    font-weight: 600;
+    color: #495057;
+    font-size: 1.2rem;
+}
+.empty-list-placeholder p {
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}

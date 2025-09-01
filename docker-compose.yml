@@ -1,0 +1,112 @@
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ai_static:/usr/share/nginx/ai-static:ro
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
+    depends_on:
+      - frontend
+      - backend
+      - ai
+    networks:
+      - malmoon-net
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  frontend:
+    build:
+      context: ./apps/frontend
+      dockerfile: Dockerfile
+    image: inttype/malmoon:frontend
+    container_name: frontend
+    expose:
+      - "80"
+    networks:
+      - malmoon-net
+
+  backend:
+    build:
+      context: ./apps/backend
+      dockerfile: Dockerfile
+    image: inttype/malmoon:backend
+    env_file:
+      - ./apps/backend/.env
+    environment:
+      # A. Spring 부트 표준 키 직접 주입 (가장 확실)
+      - SPRING_DATA_REDIS_HOST=redis
+      - SPRING_DATA_REDIS_PORT=6379
+      - SPRING_DATA_REDIS_SSL_ENABLED=false
+      # B. 여러분의 application.properties가 참조하는 키도 함께(안전망)
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - SPRING_REDIS_SSL=false
+      # C. JVM 시스템 프로퍼티로 최우선 오버라이드(최종 방어선)
+      #- JAVA_TOOL_OPTIONS=-Dexternal.fastapi.url=http://ai:8000 -Dspring.data.redis.host=redis -Dspring.data.redis.port=6379 -Dspring.data.redis.ssl.enabled=false -Dlogging.level.io.lettuce.core=DEBUG
+      - SPRING_DATA_REDIS_URL=redis://redis:6379
+      - JAVA_TOOL_OPTIONS=-Dexternal.fastapi.url=http://ai:8000 -Dspring.data.redis.host=redis -Dspring.data.redis.port=6379 -Dspring.data.redis.ssl.enabled=false -Dspring.data.redis.url=redis://redis:6379 -Dspring.redis.host=redis -Dspring.redis.port=6379 -Dlogging.level.io.lettuce.core=DEBUG
+      - Dlogging.level.io.lettuce.core=DEBUG
+      - FASTAPI_URL=http://ai:8000
+    container_name: backend
+    expose:
+      - "8080"
+    depends_on:
+      ai:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - malmoon-net
+
+  ai:
+    build:
+      context: ./apps/AI
+      dockerfile: Dockerfile
+    image: inttype/malmoon:ai
+    env_file:
+      - ./apps/AI/.env
+    container_name: ai
+    expose:
+      - "8000"
+    healthcheck:
+      test: [ "CMD", "python", "-c", "import urllib.request,sys; sys.exit(0) if urllib.request.urlopen('http://localhost:8000/health', timeout=2).status==200 else sys.exit(1)" ]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 20s
+    volumes:
+      - ai_static:/apps/AI/static
+    environment:
+      - PUBLIC_BASE_URL=https://www.malmoon.store
+      - PUBLIC_STATIC_PREFIX=/ai-static
+    networks:
+      - malmoon-net
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    command: [ "redis-server", "--appendonly", "yes" ]   # 영속성(AOF) 사용 (선택)
+    volumes:
+      - ./data/redis:/data                            # 영속 저장소 (선택)
+    # 내부 통신만 사용할 거면 ports 생략 (보안↑)
+    # ports:
+    #   - "6379:6379"                                 # 외부에서도 접속 필요할 때만
+    healthcheck:
+      test: [ "CMD", "sh", "-lc", "redis-cli -h 127.0.0.1 -p 6379 ping | grep PONG" ]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+    networks:
+      - malmoon-net
+
+volumes:
+  ai_static:
+
+networks:
+  malmoon-net:
+    driver: bridge

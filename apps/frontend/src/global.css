@@ -1,0 +1,243 @@
+/* frontend/src/global.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+:root {
+  /* Colors */
+  --primary-color: #3a2e1f; /* Dark text, similar to GuidePage h2 */
+  --secondary-color: #555; /* Lighter text */
+  --accent-color: #ff914d; /* Highlight color, from GuidePage */
+  --light-bg-color-1: #fffef9; /* Light background, from GuidePage */
+  --light-bg-color-2: #fff7e5; /* Slightly darker light background, from GuidePage */
+  --light-bg-color-3: #fffdf5; /* From HomePage character section */
+  --light-bg-color-4: #fff0dc; /* From HomePage about section */
+  --border-color: #f0e0ca; /* Border color, from GuidePage */
+  --shadow-color: rgba(0, 0, 0, 0.05); /* General shadow */
+  --shadow-color-hover: rgba(0, 0, 0, 0.08); /* Hover shadow */
+
+  /* Session Room Specific Colors */
+  --session-bg-dark: #2c3e50;
+  --session-bg-medium: #34495e;
+  --session-bg-light: #343a40;
+  --session-text-light: #ecf0f1;
+  --session-button-hover: #e6b800;
+  --session-danger: #e74c3c;
+  --session-danger-dark: #c0392b;
+  --session-danger-darker: #a93226;
+  --session-success: #2ecc71;
+  --session-success-dark: #27ae60;
+  --session-success-darker: #229954;
+
+  /* Layout */
+  --navbar-height: 64px;
+
+  /* Typography */
+  --font-family-primary: 'Pretendard', sans-serif;
+  --font-family-secondary: 'Gowun Dodum', sans-serif; /* Added Gowun Dodum */
+  --font-size-base: 16px;
+  --line-height-base: 1.6;
+
+  /* Spacing */
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 40px;
+  --spacing-xl: 48px;
+
+  /* Borders & Radii */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --bs-card-border-color: var(--border-color);
+  --calendar-selected-day-bg: #e6f2ff; /* 캘린더 선택된 날짜 배경색 */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--primary-color);
+  background-color: #f8f8f8; /* A very light grey for overall background */
+}
+
+.main-container {
+  padding: var(--spacing-lg) var(--spacing-sm);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 32px; /* From HomePage title */
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+  color: var(--primary-color);
+}
+
+h2 {
+  font-size: 24px; /* From both pages */
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+  color: var(--primary-color);
+}
+
+h3 {
+  font-size: 18px; /* From GuidePage feature-item h3 */
+  color: var(--accent-color);
+}
+
+h4 {
+  font-size: 1.5rem; /* ~24px */
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+p {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--secondary-color);
+}
+
+/* Common card/item styles */
+.card-base {
+  background-color: var(--light-bg-color-1);
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  box-shadow: 0 2px 6px var(--shadow-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-base:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px var(--shadow-color-hover);
+}
+
+/* Common Button Styles */
+.btn-soft-primary,
+.btn-soft-secondary,
+.btn-soft-info,
+.btn-soft-success,
+.btn-soft-danger {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 25px; /* Pill shape */
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  /* 추가: 투명도 문제 해결을 위한 강제 스타일 */
+  opacity: 1 !important;
+}
+
+.btn-soft-primary {
+  background-color: var(--btn-primary-bg) !important;
+  color: var(--btn-primary-text) !important;
+  border: 1px solid #e0e0e0 !important; /* 수업 예정 버튼과 동일한 테두리 색상 */
+}
+
+.btn-soft-primary:hover {
+  background-color: var(--btn-primary-hover-bg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-soft-secondary {
+  background-color: var(--btn-secondary-bg) !important;
+  color: var(--btn-secondary-text) !important;
+  border: 1px solid #e0e0e0 !important;
+}
+
+.btn-soft-secondary:hover {
+  background-color: var(--btn-secondary-hover-bg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.btn-soft-info {
+  background-color: var(--btn-info-bg);
+  color: var(--btn-info-text);
+}
+
+.btn-soft-info:hover {
+  background-color: var(--btn-info-hover-bg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-soft-success {
+  background-color: var(--btn-success-bg);
+  color: var(--btn-success-text);
+}
+
+.btn-soft-success:hover {
+  background-color: var(--btn-success-hover-bg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-soft-danger {
+  background-color: var(--btn-danger-bg);
+  color: var(--btn-danger-text);
+}
+
+.btn-soft-danger:hover {
+  background-color: var(--btn-danger-hover-bg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Elements */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: var(--font-family-primary);
+  color: var(--primary-color);
+  transition: border-color 0.2s ease-in-out;
+  box-sizing: border-box; /* Ensure padding doesn't increase total width */
+}
+
+.form-group {
+  margin-bottom: var(--spacing-sm); /* Consistent with AACManagementPage.css */
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Ensure labels and inputs align left within the group */
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--primary-color);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(var(--accent-color), 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-container {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+}

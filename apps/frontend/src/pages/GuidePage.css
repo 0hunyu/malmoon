@@ -1,0 +1,122 @@
+/* GuidePage.css (global.css 의존 없음) */
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap');
+
+/* 이 페이지 전용 팔레트 & 스케일 */
+.guide-page {
+  --gp-primary: #1f2937;          /* 본문 텍스트 */
+  --gp-secondary: #4b5563;        /* 보조 텍스트 */
+  --gp-accent: #4a90e2;           /* 포인트 컬러 */
+  --gp-band: #fff4e6;             /* 파스텔 밴드(피치) */
+  --gp-band-soft: #f4f8fb;        /* 라이트 밴드(소프트 블루) */
+  --gp-border: #e5e7eb;
+  --gp-card-bg: #ffffff;
+  --gp-muted: #f8fafc;
+
+  --gp-radius: 16px;
+  --gp-radius-sm: 12px;
+
+  --gp-shadow: 0 2px 8px rgba(16,24,40,0.12);
+  --gp-shadow-lg: 0 10px 24px rgba(16,24,40,0.10);
+
+  --gp-spacing-xs: 8px;
+  --gp-spacing-sm: 16px;
+  --gp-spacing-md: 24px;
+  --gp-spacing-lg: 48px;
+  --gp-spacing-xl: 64px;
+
+  color: var(--gp-primary);
+}
+
+.guide-page * { box-sizing: border-box; }
+
+/* 컨테이너 (global.css의 main-container 무시) */
+.guide-page.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--gp-spacing-lg) var(--gp-spacing-sm);
+}
+
+/* 로고 */
+.guide-logo-wrapper { text-align: center; margin-bottom: var(--gp-spacing-md); }
+.guide-logo { width: 160px; height: auto; }
+
+/* 타이포(이 페이지 한정) */
+.guide-page h1,
+.guide-page h2,
+.guide-page h3,
+.guide-page h4 { margin: 0 0 var(--gp-spacing-sm) 0; line-height: 1.25; }
+
+.guide-page h1 { font-family: 'Jua','Gowun Dodum',sans-serif; font-size: 2.25rem; color: var(--gp-primary); }
+.guide-page h2 { font-family: 'Jua','Gowun Dodum',sans-serif; font-size: 2rem; font-weight: 700; color: var(--gp-primary); }
+.guide-page h3 { font-weight: 700; color: var(--gp-accent); }
+.guide-page p  { margin: 0; font-family: 'Gowun Dodum',sans-serif; color: var(--gp-secondary); line-height: 1.9; }
+
+/* 인트로 */
+.intro-section {
+  text-align: center;
+  margin-bottom: var(--gp-spacing-xl);
+}
+.intro-section .highlight { color: var(--gp-accent); font-weight: 700; }
+.intro-section .subtitle { font-size: 18px; margin-top: var(--gp-spacing-sm); color: var(--gp-secondary); }
+
+/* 공통 섹션 타이틀 */
+.section-title {
+  text-align: center;
+  font-family: 'Jua','Gowun Dodum',sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gp-primary);
+  margin-bottom: var(--gp-spacing-md);
+}
+
+/* HomePage 느낌의 파스텔 밴드 */
+.band-section {
+  background: var(--gp-band);
+  border-top: 2px solid #f0dcc7;
+  border-bottom: 2px solid #f0dcc7;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.04), 0 -6px 16px rgba(0,0,0,0.03);
+  padding: calc(var(--gp-spacing-lg) - 8px) var(--gp-spacing-sm);
+  margin-bottom: var(--gp-spacing-xl);
+}
+.band-section-soft {
+  background: var(--gp-band-soft);
+  border-top: 1px solid #e7eef6;
+  border-bottom: 1px solid #e7eef6;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.03), 0 -5px 12px rgba(0,0,0,0.02);
+  padding: calc(var(--gp-spacing-lg) - 8px) var(--gp-spacing-sm);
+  margin-bottom: var(--gp-spacing-xl);
+}
+
+/* 카드 공통 (global의 .card-base 무시) */
+.card-base { background: var(--gp-card-bg); border-radius: var(--gp-radius); box-shadow: var(--gp-shadow); padding: var(--gp-spacing-md); }
+
+/* 주요 서비스 */
+.feature-list { display: flex; flex-direction: column; gap: var(--gp-spacing-md); max-width: 1000px; margin: 0 auto; }
+.feature-item { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--gp-spacing-md); }
+.feature-item h3 { flex: 1; margin: 0; }
+.feature-item p  { flex: 3; }
+
+/* 기관용 서비스 */
+.institution-section { margin-bottom: var(--gp-spacing-xl); }
+.institution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--gp-spacing-md); }
+.institution-card h3 { margin-bottom: var(--gp-spacing-sm); }
+.hover-lift { transition: transform .25s ease, box-shadow .25s ease; }
+.hover-lift:hover { transform: translateY(-4px); box-shadow: var(--gp-shadow-lg); }
+
+/* Q&A */
+.qa-item {
+  margin-bottom: var(--gp-spacing-md);
+  background-color: var(--gp-muted);
+  padding: var(--gp-spacing-sm);
+  border-radius: var(--gp-radius-sm);
+  border-left: 4px solid var(--gp-accent);
+}
+.qa-item h4 { margin-bottom: var(--gp-spacing-sm); color: var(--gp-primary); }
+
+.mm-red { color: #e74c3c; }              /* 말 = 빨간색 */
+.mm-blue { color: var(--gp-accent); }    /* 문 = 기존 포인트 컬러 */
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .feature-item { flex-direction: column; }
+}

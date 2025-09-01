@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# 가상환경
+venv/
+env/
+.venv/
+
+# 환경 변수 파일
+.env
+
+# Uvicorn 또는 기타 서버에서 생성할 수 있는 로그/임시파일
+*.log
+*.pid
+*.sqlite3
+
+# Static/Temp 등 임시 이미지 폴더 (필요 시)
+static/temp/
+
+# VSCode
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db

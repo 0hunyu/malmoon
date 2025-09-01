@@ -1,0 +1,317 @@
+/* ===== 페이지 공통: 폭 축소 & 타이포 정돈 ===== */
+.page-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page-header {
+  display: flex; /* 제목과 버튼을 한 줄에 배치합니다. */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: space-between; /* 양쪽 끝으로 배치합니다. */
+  margin-bottom: 2rem; /* 제목과 아래 콘텐츠 사이 간격 조정 */
+}
+
+.page-title {
+  font-family: 'Pretendard', 'Noto Sans KR', system-ui, -apple-system, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--primary-color, #1f2937);
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+/* ===== Hover “올라감” 효과 전면 제거 ===== */
+.no-hover-btn,
+.no-hover-btn:focus,
+.no-hover-btn:active {
+  transition: none !important;
+  filter: none !important;
+}
+
+.no-lift,
+.no-lift:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.card-base,
+.card,
+.btn,
+.feedback-sub-block,
+.matching-client-item,
+.react-calendar-custom .react-calendar__tile {
+  transition: none !important;
+}
+
+.card:hover,
+.card-base:hover,
+.btn:hover,
+.feedback-sub-block:hover,
+.matching-client-item:hover,
+.react-calendar-custom .react-calendar__tile:enabled:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* ===== 리스트 카드 ===== */
+.matching-client-list { list-style: none; padding: 0; }
+
+.matching-client-item {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  margin-bottom: var(--spacing-sm, 12px);
+  padding: 16px;
+}
+
+.client-row { display: flex; gap: 12px; align-items: center; }
+
+.avatar {
+  width: 56px; height: 56px; border-radius: 50%;
+  object-fit: contain; background: #fff;
+  border: 1px solid #e5e7eb; padding: 6px;
+}
+
+.avatar-lg { width: 84px; height: 84px; }
+
+.client-text h5 {
+  font-size: 1.1rem;
+  color: #111827;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.client-text p {
+  font-size: 0.95rem;
+  color: var(--secondary-color, #6b7280);
+  margin-bottom: 4px;
+}
+
+.matching-client-info { flex: 1 1 60%; margin-bottom: 10px; }
+.matching-client-actions { flex: 1 1 35%; display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
+
+/* 버튼 (hover 제거 & 고정색) */
+.btn-soft-primary {
+  background-color: #e6f2ff;
+  color: #0d6efd;
+  border-color: #cce5ff;
+}
+.btn-soft-primary:hover:enabled {
+  background-color: #e6f2ff;
+  color: #0d6efd;
+  border-color: #cce5ff;
+}
+
+/* ===== 아동 정보 카드 상단 헤더 ===== */
+.child-header {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 8px;
+}
+.child-header-text .child-name {
+  font-weight: 800; font-size: 1.1rem; color: #111827;
+}
+.child-header-text .child-meta {
+  font-size: 0.95rem; color: #6b7280;
+}
+.soft-divider { border: 0; border-top: 1px solid #e5e7eb; margin: 12px 0 16px; }
+
+/* ===== 캘린더 ===== */
+.react-calendar-custom {
+  width: 100%;
+  border: none;
+  font-family: 'Noto Sans KR', sans-serif;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.react-calendar-custom .react-calendar__navigation button {
+  font-size: 1.1em;
+  color: #111827;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.react-calendar-custom .react-calendar__navigation button:enabled:hover {
+  background-color: transparent;
+}
+
+.react-calendar-custom .react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: none !important;
+  font-weight: 700;
+  color: #6b7280;
+  font-size: 0.9em;
+}
+
+.react-calendar-custom .react-calendar__month-view__days__day { color: #111827; }
+
+.react-calendar-custom .react-calendar__tile {
+  padding: 26px 6px;
+  border-radius: 8px;
+  font-size: 1em;
+  position: relative;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+}
+
+.react-calendar-custom .react-calendar__tile--now {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.react-calendar-custom .react-calendar__tile--active {
+  background: #0d6efd;
+  color: #fff !important;
+  border-radius: 8px;
+}
+
+/* 마커 */
+.dot-marker-container {
+  position: absolute; bottom: 5px; left: 0; right: 0;
+  display: flex; justify-content: center; gap: 3px;
+}
+.dot-marker { height: 6px; width: 6px; border-radius: 50%; display: inline-block; }
+.feedback-marker { background-color: #f59e0b; }
+
+.react-calendar-custom .react-calendar__tile.has-feedback {
+  background-color: #fff9eb;
+  border-color: #fde68a;
+}
+.react-calendar-custom .react-calendar__tile.has-feedback:hover {
+  background-color: #fff9eb;
+}
+
+/* 범례 */
+.calendar-legend {
+  display: flex; justify-content: center; align-items: center;
+  font-size: 0.9em; color: #555;
+}
+.calendar-legend .dot-marker { margin-right: 5px; }
+
+/* ===== 피드백 상세 ===== */
+.feedback-detail-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.feedback-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback-card.grid-col-span-2 {
+  grid-column: span 2;
+}
+
+.feedback-card h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feedback-card h4 .bi {
+  color: #0d6efd;
+  font-size: 1.1rem;
+  margin-right: 4px;
+}
+
+.feedback-card p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* ===== 채팅 모달 ===== */
+.chat-modal-body {
+  height: 500px; overflow-y: auto; display: flex; flex-direction: column; padding: 1rem;
+}
+.messages-area { flex-grow: 1; }
+.message-bubble {
+  max-width: 70%; padding: 0.5rem 1rem; border-radius: 1.25rem; margin-bottom: 0.5rem; display: flex; flex-direction: column;
+}
+.message-bubble.sent {
+  background-color: #0d6efd; color: white; align-self: flex-end;
+  border-bottom-right-radius: 0.25rem; margin-left: auto;
+}
+.message-bubble.received {
+  background-color: #e9ecef; color: black; align-self: flex-start;
+  border-bottom-left-radius: 0.25rem;
+}
+.message-content { margin-bottom: 0.25rem; }
+.message-time { font-size: 0.75rem; align-self: flex-end; opacity: 0.8; }
+.message-bubble.received .message-time { align-self: flex-start; color: #6c757d; }
+
+/* ===== 반응형 ===== */
+@media (max-width: 768px) {
+  .page-inner { max-width: 100%; padding: 0 12px; }
+  .matching-client-item { flex-direction: column; align-items: flex-start; }
+  .matching-client-info { width: 100%; margin-bottom: 12px; }
+  .matching-client-actions { width: 100%; justify-content: flex-start; }
+  .feedback-grid {
+    grid-template-columns: 1fr;
+  }
+  .feedback-card.grid-col-span-2 {
+    grid-column: span 1; /* On small screens, everything is 1 column */
+  }
+}
+
+/* TherapistFeedbackPage.css 파일에 아래 코드를 추가하거나 확인하세요. */
+
+/* 1. `page-header-actions` 스타일 추가 (버튼을 감싸는 div) */
+.page-header-actions {
+  position: relative; /* 뱃지의 위치 기준이 됩니다. */
+}
+
+/* 2. 뱃지 스타일 추가 */
+.badge.position-absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  z-index: 10;
+  min-width: 2em;
+  padding: 0.4em 0.5em;
+  font-size: 0.7em;
+  border-radius: 50%;
+}
+
+/* TherapistFeedbackPage.css */
+
+/* ... (기존 CSS 코드) ... */
+
+/* 버튼과 뱃지를 감싸는 div 스타일 */
+.page-header-actions {
+  position: relative; /* 뱃지가 이 요소를 기준으로 움직입니다. */
+  display: flex;
+  align-items: center;
+}
+
+/* 뱃지 스타일 */
+.badge.badge-custom {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  padding: .4em .5em;
+  font-size: 0.7em;
+  border-radius: 100%;
+  min-width: 2em;
+}

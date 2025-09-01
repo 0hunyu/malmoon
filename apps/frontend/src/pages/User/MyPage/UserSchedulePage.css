@@ -1,0 +1,125 @@
+/* UserSchedulePage.css — right button, clear separators, no hover */
+
+.user-schedule-page {
+  --us-primary: #1f2937;
+  --us-secondary: #4b5563;
+  --us-accent: #4a90e2;
+  --us-success: #16a34a;
+  --us-border: #e5e7eb;
+  --us-shadow-lg: 0 12px 26px rgba(16,24,40,0.12);
+  --us-radius: 16px;
+}
+
+/* 타이틀 */
+.user-schedule-page .page-title {
+  font-family: 'Jua','Gowun Dodum',sans-serif;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--us-primary);
+  margin-bottom: .25rem;
+}
+.user-schedule-page .page-subtitle {
+  color: var(--us-secondary);
+  margin-bottom: 1rem;
+}
+.user-schedule-page .count-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: .95rem;
+  background: #eef6ff;
+  border: 1px solid #d7e7ff;
+  color: #1e429f;
+}
+
+/* 카드 — hover 그림자 완전 제거 */
+.user-schedule-page .schedule-card.card-base {
+  border-radius: var(--us-radius);
+  box-shadow: none; /* 기본도 그림자 없이 */
+  border: 1px solid rgba(0,0,0,0.08);
+  max-width: 760px;
+  margin: 0 auto;
+  transition: none !important;
+}
+.user-schedule-page .schedule-card.card-base:hover {
+  box-shadow: none !important;   /* 호버에도 없음 */
+  transform: none !important;
+}
+
+/* 리스트 전체 경계 */
+.user-schedule-page .schedule-list {
+  border-top: 1px solid var(--us-border);
+  border-bottom: 1px solid var(--us-border);
+  margin-top: 6px;
+}
+
+/* 아이템 — 위/아래 경계, 좌:두줄, 우:버튼(세로 중앙) */
+.user-schedule-page .schedule-list .list-group-item {
+  border: none;
+  padding: 12px 16px;
+  border-top: 1px solid var(--us-border);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center; /* 버튼을 두 줄의 세로 중앙에 맞춤 */
+  gap: 16px;
+}
+.user-schedule-page .schedule-list .list-group-item:first-child {
+  border-top: none; /* 최상단은 외부 경계와 겹치므로 제거 */
+}
+
+/* 좌측 두 줄 */
+.user-schedule-page .left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start; /* 왼쪽 정렬 고정 */
+}
+
+.user-schedule-page .row-top {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.user-schedule-page .date-text { color: var(--us-primary); font-weight: 800; }
+.user-schedule-page .time-text { color: var(--us-secondary); font-weight: 600; }
+
+.user-schedule-page .row-bottom {
+  color: var(--us-secondary);
+  line-height: 1.4;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+.user-schedule-page .therapist-name { color: var(--us-accent); font-weight: 800; white-space: nowrap; }
+.user-schedule-page .status-inline { color: var(--us-accent); font-weight: 700; }
+
+/* 우측 버튼 */
+.user-schedule-page .right .start-btn {
+  min-width: 120px;
+  border-radius: 10px;
+  font-weight: 800;
+  padding: 8px 14px;
+  box-shadow: none; /* 버튼 자체도 과한 그림자 제거 */
+}
+
+/* 빈 상태 */
+.user-schedule-page .empty-state {
+  display: grid;
+  place-items: center;
+  padding: 24px 8px;
+  text-align: center;
+  color: var(--us-secondary);
+}
+.user-schedule-page .empty-emoji { font-size: 28px; margin-bottom: 6px; }
+.user-schedule-page .empty-text { color: #6b7280; margin-top: 4px; }
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .user-schedule-page .page-title { font-size: 1.6rem; }
+  .user-schedule-page .schedule-card.card-base { max-width: 100%; }
+  .user-schedule-page .schedule-list .list-group-item {
+    grid-template-columns: 1fr; /* 모바일에서는 버튼을 아래로 */
+    gap: 10px;
+  }
+  .user-schedule-page .right .start-btn { width: 100%; }
+}
